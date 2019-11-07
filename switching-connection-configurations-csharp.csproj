@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>switching_connection_configurations_csharp</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include=".vscode\launch.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CassandraCSharpDriver" Version="3.12.0" />
+  </ItemGroup>
+</Project>
