@@ -27,7 +27,7 @@ While these criteria added to the configuration are commonly used configuration 
 
 Additionally while this example uses environment variables to control which configuration is selected this could also be done via the use of configuration files or command line parameters.
 
-For clarities sake this sample does not contain any of the normal error handling process you would want to wrap around connecting to a cluster to handle likely errors that would occur.
+For clarity this sample does not contain any of the normal error handling process you would want to wrap around connecting to a cluster to handle likely errors that would occur.
 
 ## Setup and Running
 
