@@ -1,13 +1,15 @@
-# Switching Connections between Cassandra or Apollo in C#
-This application shows how to use configure a Java application to connect to Cassandra or an Apollo database at runtime using environment variables.
+# Switch Connections between Apache Cassandra™ and Apollo databases
+This application shows how to use the [C# DataStax Driver](https://docs.datastax.com/en/developer/csharp-driver/latest) to connect to an on-prem Cassandra database or a Apollo database in the cloud at runtime using environment variables.
 
-Contributors: [Dave Bechberger](https://github.com/bechbd) 
+Contributor(s): [Dave Bechberger](https://github.com/bechbd)
 
 ## Objectives
-* To demonstrate how to specify at runtime between a Cassandra (DSE/DDAC/C*) client configuration and an Apollo configuration for the same application.
+* Shows the differences between a Cassandra connection configuration and an Apollo connection configuration in a single app.
+* Provide a demonstration of how to configure the database connection at runtime.
+* See the [documentation](https://docs.datastax.com/en/developer/csharp-driver/latest/features/cloud/) for more details about the Apollo connection configuration for the C# Driver
 
 ## Project Layout
-* [Program.cs](/Program.cs) - The main application file which contains all the logic to switch between the configurations
+* [Program.cs](/Program.cs) - The main application file which contains the logic to switch between the configurations
 
 ## How this Sample Works
 This sample uses environment variables to specify the configuration parameters and whether to use a Cassandra (DSE/DDAC/C*) configuration or an Apollo configuration.  
