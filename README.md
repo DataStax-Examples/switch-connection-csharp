@@ -13,7 +13,7 @@ Contributor(s): [Dave Bechberger](https://github.com/bechbd)
 
 ## How this Sample Works
 This sample uses environment variables to specify the configuration parameters and whether to use a Cassandra (DSE/DDAC/C*) configuration or an Apollo configuration.  
-All the logic to switch between the configurations occurs in the `getClientConfiguration` method.  
+All the logic to switch between the configurations occurs in the [`GetClientConfiguration`](https://github.com/DataStax-Examples/switch-connection-csharp/blob/master/Program.cs#L33) method.  
 * If you specify the `USEAPOLLO` environment variable and it is `true`:
     * The environment variables are checked to see that `DBUSERNAME`, `DBPASSWORD`, `SECURECONNECTBUNDLEPATH`, and `KEYSPACE` exist
 		* If they exist then the Apollo connection is created
