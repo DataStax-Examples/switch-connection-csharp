@@ -44,7 +44,7 @@ This first step in the process is to build the application.  This can be done us
 
 `dotnet build`
 
-Once you have compiled the connection information and built the application you can run this to connect to Apollo by using the command below, with the appropriate configuration added:
+Once you have compiled the connection information and built the application you can run this to connect to Astra by using the command below, with the appropriate configuration added:
 
 `USEASTRA=true DBUSERNAME=XXX DBPASSWORD=XXX KEYSPACE=XXX SECURECONNECTBUNDLEPATH="/valid/path/to/secureconnectbundle.zip" dotnet run`
 
