@@ -1,24 +1,24 @@
-# Switch Connections between Apache Cassandra™ and Apollo databases
-This application shows how to use the [C# DataStax Driver](https://docs.datastax.com/en/developer/csharp-driver/latest) to connect to an on-prem Cassandra database or a Apollo database in the cloud at runtime using environment variables.
+# Switch Connections between Apache Cassandra™ and Astra databases
+This application shows how to use the [C# DataStax Driver](https://docs.datastax.com/en/developer/csharp-driver/latest) to connect to an on-prem Cassandra database or a Astra database in the cloud at runtime using environment variables.
 
 Contributor(s): [Dave Bechberger](https://github.com/bechbd)
 
 ## Objectives
-* Shows the differences between a Cassandra connection configuration and an Apollo connection configuration in a single app.
+* Shows the differences between a Cassandra connection configuration and an Astra connection configuration in a single app.
 * Provide a demonstration of how to configure the database connection at runtime.
-* See the [documentation](https://docs.datastax.com/en/developer/csharp-driver/latest/features/cloud/) for more details about the Apollo connection configuration for the C# Driver
+* See the [documentation](https://docs.datastax.com/en/developer/csharp-driver/latest/features/cloud/) for more details about the Astra connection configuration for the C# Driver
 
 ## Project Layout
 * [Program.cs](/Program.cs) - The main application file which contains the logic to switch between the configurations
 
 ## How this Sample Works
-This sample uses environment variables to specify the configuration parameters and whether to use a Cassandra (DSE/DDAC/C*) configuration or an Apollo configuration.  
+This sample uses environment variables to specify the configuration parameters and whether to use a Cassandra (DSE/DDAC/C*) configuration or an Astra configuration.  
 All the logic to switch between the configurations occurs in the [`GetClientConfiguration`](https://github.com/DataStax-Examples/switch-connection-csharp/blob/master/Program.cs#L33) method.  
-* If you specify the `USEAPOLLO` environment variable and it is `true`:
+* If you specify the `USEASTRA` environment variable and it is `true`:
     * The environment variables are checked to see that `DBUSERNAME`, `DBPASSWORD`, `SECURECONNECTBUNDLEPATH`, and `KEYSPACE` exist
-		* If they exist then the Apollo connection is created
+		* If they exist then the Astra connection is created
 		* If they do not exist then an error is thrown
-* If you so not specify the `USEAPOLLO` environment variable or it is `false`:
+* If you so not specify the `USEASTRA` environment variable or it is `false`:
 	* The environment variables are checked to see that `CONTACTPOINTS` and `DATACENTER` exist
 		* If they exist then the standard connection is created
 		* If they do not exist then an error is thrown
@@ -35,18 +35,18 @@ For clarity this sample does not contain any of the normal error handling proces
 
 ### Prerequisites
 * .NET Core 2.1
-* A Cassandra cluster or an Apollo database to connect to with the appropriate connection information
+* A Cassandra cluster or an Astra database to connect to with the appropriate connection information
 
 ### Running
 
-To connect to an Apollo database you first need to download the secure connect bundle following the instructions found [here](https://docs.datastax.com/en/landing_page/doc/landing_page/cloud.html).
+To connect to an Astra database you first need to download the secure connect bundle following the instructions found [here](https://docs.datastax.com/en/astra/aws/doc/dscloud/astra/dscloudObtainingCredentials.html).
 This first step in the process is to build the application.  This can be done using the following command:
 
 `dotnet build`
 
 Once you have compiled the connection information and built the application you can run this to connect to Apollo by using the command below, with the appropriate configuration added:
 
-`USEAPOLLO=true DBUSERNAME=XXX DBPASSWORD=XXX KEYSPACE=XXX SECURECONNECTBUNDLEPATH="/valid/path/to/secureconnectbundle.zip" dotnet run`
+`USEASTRA=true DBUSERNAME=XXX DBPASSWORD=XXX KEYSPACE=XXX SECURECONNECTBUNDLEPATH="/valid/path/to/secureconnectbundle.zip" dotnet run`
 
 If you would like to connect to a Cassandra cluster use the command below, with the appropriate configuration added:
 
