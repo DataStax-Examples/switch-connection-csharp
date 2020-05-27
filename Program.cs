@@ -47,7 +47,7 @@ namespace switching_connection_configurations_csharp
                 }
                 else
                 {
-                    throw new ArgumentException("You must have the DBUSERNAME, DBPASSWORD, SECURECONNECTBUNDLEPATH, and KEYSPACE environment variables set to use Apollo as your database.");
+                    throw new ArgumentException("You must have the DBUSERNAME, DBPASSWORD, SECURECONNECTBUNDLEPATH, and KEYSPACE environment variables set to use Astra as your database.");
                 }
             }
             else
@@ -59,7 +59,7 @@ namespace switching_connection_configurations_csharp
                 }
                 else
                 {
-                    throw new ArgumentException("You must have the CONTACTPOINTS environment variable set to use Apollo as your database.");
+                    throw new ArgumentException("You must have the CONTACTPOINTS environment variable set to use Astra as your database.");
                 }
             }
 
