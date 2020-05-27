@@ -24,7 +24,7 @@ namespace switching_connection_configurations_csharp
         }
 
         /// <summary>
-        /// This method shows how you can switch between a Cassandra or an Apollo connection at runtime.
+        /// This method shows how you can switch between a Cassandra or an Astra connection at runtime.
         /// In this example we used environment variables but in reality this could be done using configuration files, command line arguments, etc.
         /// Additionally for a production use case we would want to add additional error handling/checking around that connection
         /// process which was omitted here for simplicities sake.
@@ -33,10 +33,10 @@ namespace switching_connection_configurations_csharp
         private async Task<ISession> GetClientConfiguration()
         {
             Builder builder = null;
-            if (!String.IsNullOrEmpty(System.Environment.GetEnvironmentVariable("USEAPOLLO")) &&
-                Boolean.Parse(System.Environment.GetEnvironmentVariable("USEAPOLLO")))
+            if (!String.IsNullOrEmpty(System.Environment.GetEnvironmentVariable("USEASTRA")) &&
+                Boolean.Parse(System.Environment.GetEnvironmentVariable("USEASTRA")))
             {
-                //Since this is Apollo make sure we have all the needed connection information, else throw an error
+                //Since this is Astra make sure we have all the needed connection information, else throw an error
                 if (!String.IsNullOrEmpty(System.Environment.GetEnvironmentVariable("DBUSERNAME")) &&
                 !String.IsNullOrEmpty(System.Environment.GetEnvironmentVariable("DBPASSWORD")) &&
                 !String.IsNullOrEmpty(System.Environment.GetEnvironmentVariable("SECURECONNECTBUNDLEPATH")) &&
@@ -63,7 +63,7 @@ namespace switching_connection_configurations_csharp
                 }
             }
 
-            //Add Credentials - This is required for Apollo
+            //Add Credentials - This is required for Astra
             if (!String.IsNullOrEmpty(System.Environment.GetEnvironmentVariable("DBUSERNAME")) &&
                 !String.IsNullOrEmpty(System.Environment.GetEnvironmentVariable("DBPASSWORD")))
             {
@@ -71,7 +71,7 @@ namespace switching_connection_configurations_csharp
                         System.Environment.GetEnvironmentVariable("DBPASSWORD"));
             }
 
-            //Add Keyspace if it exists - This is required for Apollo
+            //Add Keyspace if it exists - This is required for Astra
             if (!String.IsNullOrEmpty(System.Environment.GetEnvironmentVariable("KEYSPACE")))
             {
                 return await builder.Build().ConnectAsync(System.Environment.GetEnvironmentVariable("KEYSPACE"));
